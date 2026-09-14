@@ -14,5 +14,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Check style
         run: brew style Casks/claudex.rb
-      - name: Audit cask
-        run: brew audit --cask --new Casks/claudex.rb
+      - name: Trust cask
+        run: brew trust --cask itizarsa/tap/claudex
+      - name: Fetch release
+        if: github.event_name == 'push'
+        run: |
+          brew tap itizarsa/tap
+          brew fetch --cask itizarsa/tap/claudex
