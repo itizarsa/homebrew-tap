@@ -9,9 +9,8 @@ Claudex currently supports Apple silicon and macOS 14 Sonoma or newer.
     brew trust --cask itizarsa/tap/claudex
     brew install --cask itizarsa/tap/claudex
 
-Claudex is ad-hoc signed and not notarized. If macOS blocks first launch, open
-System Settings, choose Privacy & Security, then click Open Anyway. Do not disable
-Gatekeeper globally.
+Claudex is self-signed, not notarized. The cask clears its quarantine flag, so it
+opens without a Gatekeeper prompt.
 
 Homebrew 7 requires explicit trust before loading third-party casks. Trust is
 limited to Claudex, not every package in this tap.

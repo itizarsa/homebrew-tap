@@ -1,8 +1,8 @@
 cask "claudex" do
-  version "0.1.3"
-  sha256 "b0802d73b53b2549f44142577d8eac24cfb6d560435a2b3a865687499331d48e"
+  version "0.1.4"
+  sha256 "453b49cfb0127be2399ec34b0ab76e0172a6a170bbccef6aacf40d5261fbbf12"
 
-  url "https://github.com/itizarsa/claudex/releases/download/v#{version}/Claudex-#{version}.dmg"
+  url "https://github.com/itizarsa/claudex/releases/download/v#{version}/Claudex-#{version}.zip"
   name "Claudex"
   desc "Show tokenmaxx Claude and Codex usage limits in the menu bar"
   homepage "https://github.com/itizarsa/claudex"
@@ -12,11 +12,15 @@ cask "claudex" do
 
   app "Claudex.app"
 
-  caveats <<~EOS
-    Claudex reads usage from tokenmaxx. Install it with:
-      bun add -g tokenmaxx
+  # Claudex is self-signed, not notarized. Clearing quarantine lets it open without
+  # the Gatekeeper prompt.
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Claudex.app"], must_succeed: false
+  end
 
-    Claudex is ad-hoc signed and not notarized. macOS may block its first launch.
-    Open System Settings > Privacy & Security, then click Open Anyway.
+  caveats <<~EOS
+    Claudex reads usage from tokenmaxx. Install it and start its daemon with:
+      bun add -g tokenmaxx
+      tokenmaxx daemon install
   EOS
 end
