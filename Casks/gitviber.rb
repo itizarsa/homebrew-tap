@@ -1,6 +1,6 @@
 cask "gitviber" do
-  version "0.2.0"
-  sha256 "4bd6f11c387cbe68aff947d8d815b0a3dfb2f6cb93a982ac5f9c5ebbe771b043"
+  version "0.3.0"
+  sha256 "c9c7a0e906a4f97de11c65e66d07bb68cbedcab11d0649577fa535d471e34da4"
 
   url "https://github.com/itizarsa/gitviber/releases/download/v#{version}/GitViber_#{version}_universal.dmg"
   name "GitViber"
@@ -17,8 +17,6 @@ cask "gitviber" do
   depends_on macos: :ventura
 
   app "GitViber.app"
-  # The `gitviber` command (src-tauri/resources/gitviber), linked into Homebrew's bin.
-  binary "#{appdir}/GitViber.app/Contents/Resources/bin/gitviber"
 
   # GitViber is self-signed, not notarized. Clearing quarantine lets it open without
   # the Gatekeeper prompt.
