@@ -13,11 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check style
-        run: brew style Casks/claudex.rb
+        run: brew style Casks/claudex.rb Casks/gitviber.rb
       - name: Trust cask
-        run: brew trust --cask itizarsa/tap/claudex
+        run: |
+          brew trust --cask itizarsa/tap/claudex
+          brew trust --cask itizarsa/tap/gitviber
       - name: Fetch release
         if: github.event_name == 'push'
         run: |
           brew tap itizarsa/tap
-          brew fetch --cask itizarsa/tap/claudex
+          brew fetch --cask itizarsa/tap/claudex itizarsa/tap/gitviber
