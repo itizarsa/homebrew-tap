@@ -1,6 +1,6 @@
 cask "gitviber" do
-  version "0.3.2"
-  sha256 "9d694c654d3cc38a564b5be8c26759caddaeea64cea4e7ef86b2ce1e3bc46c85"
+  version "0.3.3"
+  sha256 "cb28a9e766cd7b120c0e03bf9844869567b8e60ce08462affea8284276ece54a"
 
   url "https://github.com/itizarsa/gitviber/releases/download/v#{version}/GitViber_#{version}_universal.dmg"
   name "GitViber"
