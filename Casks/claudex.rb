@@ -1,10 +1,10 @@
 cask "claudex" do
-  version "0.1.5"
-  sha256 "bb4ee21596839d7890c39295ed923a734f505ba8334684b87954aa4c43e4707f"
+  version "0.2.1"
+  sha256 "727286b6ef81ab16311cd443d1a4cf6c149a7fa16d5b5d5557316f572bbe4149"
 
   url "https://github.com/itizarsa/claudex/releases/download/v#{version}/Claudex-#{version}.zip"
   name "Claudex"
-  desc "Show tokenmaxx Claude and Codex usage limits in the menu bar"
+  desc "Show CLIProxyAPI Claude usage limits in the menu bar"
   homepage "https://github.com/itizarsa/claudex"
 
   depends_on arch: :arm64
@@ -19,8 +19,8 @@ cask "claudex" do
   end
 
   caveats <<~EOS
-    Claudex reads usage from tokenmaxx. Install it and start its daemon with:
-      bun add -g tokenmaxx
-      tokenmaxx daemon install
+    Claudex reads usage from CLIProxyAPI. Install it and start its service with:
+      brew install cliproxyapi
+      brew services start cliproxyapi
   EOS
 end
