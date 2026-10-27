@@ -1,6 +1,6 @@
 cask "claudex" do
-  version "0.2.3"
-  sha256 "b560562b5771718bdd78c5a7e922a95d723b9af465ef546e9d6383ebb1c00c7a"
+  version "0.2.4"
+  sha256 "17204d5bd452796174136563bfd9d1a7f19695ee8603d814d6cdc2db672e276a"
 
   url "https://github.com/itizarsa/claudex/releases/download/v#{version}/Claudex-#{version}.zip"
   name "Claudex"
